@@ -1,0 +1,6 @@
+{
+  "name": "Live Weather App",
+  "description": "A weather application with city search, live temperature, wind speed, weather icon emojis, and descriptions powered by the free Open-Meteo API.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

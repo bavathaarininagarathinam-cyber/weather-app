@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding and mobile responsive viewport settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- App Title shown in the browser tab -->
+  <title>Live Weather App</title>
+
+  <!-- Modern clean font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Link external CSS stylesheet for styling the application -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main container centering the weather app -->
+  <div class="weather-app">
+    
+    <!-- Application Title Header -->
+    <header class="app-header">
+      <h1 class="app-title">Weather Forecast</h1>
+      <p class="app-subtitle">Check real-time weather powered by Open-Meteo</p>
+    </header>
+
+    <!-- Search Section: Input box and Get Weather button -->
+    <section class="search-section">
+      <div class="search-container">
+        <!-- Input field where users type the city name -->
+        <input 
+          type="text" 
+          id="city-input" 
+          class="city-input" 
+          placeholder="Enter city name (e.g., Chennai, London)..."
+          autocomplete="off"
+        >
+        <!-- Button that triggers the weather fetch request -->
+        <button id="search-btn" class="search-btn">
+          Get Weather
+        </button>
+      </div>
+
+      <!-- Quick City Suggestions for easy 1-click testing -->
+      <div class="quick-cities">
+        <span class="quick-label">Try:</span>
+        <button type="button" class="quick-btn" data-city="Chennai">Chennai</button>
+        <button type="button" class="quick-btn" data-city="Bengaluru">Bengaluru</button>
+        <button type="button" class="quick-btn" data-city="Mumbai">Mumbai</button>
+        <button type="button" class="quick-btn" data-city="Delhi">Delhi</button>
+        <button type="button" class="quick-btn" data-city="London">London</button>
+      </div>
+
+      <!-- Error / Status message box (hidden by default) -->
+      <div id="status-message" class="status-message" style="display: none;"></div>
+    </section>
+
+    <!-- Weather Card: Displays current weather details -->
+    <section class="card-section">
+      <div id="weather-card" class="weather-card">
+        
+        <!-- Header of the card: City name and location -->
+        <div class="card-header">
+          <div>
+            <!-- City name will be populated here by JavaScript -->
+            <h2 id="city-name" class="city-name">Chennai</h2>
+            <p id="country-name" class="country-name">Tamil Nadu, India</p>
+          </div>
+          <!-- Weather Icon (Emoji) representing current sky condition -->
+          <div id="weather-icon" class="weather-icon" aria-label="Weather icon">☀️</div>
+        </div>
+
+        <!-- Main Temperature Display -->
+        <div class="temperature-container">
+          <!-- Temperature number and unit populated by JavaScript -->
+          <span id="temperature" class="temperature">29.4°C</span>
+        </div>
+
+        <!-- Weather Condition Description -->
+        <div class="description-container">
+          <!-- Short human-readable weather description (e.g., Clear sky, Rain) -->
+          <p id="weather-description" class="weather-description">Clear sky</p>
+        </div>
+
+        <!-- Additional Weather Details (Wind speed, humidity, feels-like) -->
+        <div class="card-details">
+          <!-- Wind speed reading -->
+          <div class="detail-item">
+            <span class="detail-label">Wind Speed</span>
+            <span id="wind-speed" class="detail-value">14.8 km/h</span>
+          </div>
+
+          <!-- Humidity reading -->
+          <div class="detail-item">
+            <span class="detail-label">Humidity</span>
+            <span id="humidity" class="detail-value">72%</span>
+          </div>
+
+          <!-- Feels-like reading -->
+          <div class="detail-item">
+            <span class="detail-label">Feels Like</span>
+            <span id="feels-like" class="detail-value">33.5°C</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3-Day Forecast Section: Below main weather card -->
+    <section class="forecast-section">
+      <h3 class="forecast-title">3-Day Forecast</h3>
+      <!-- Container where JavaScript injects the 3 daily forecast cards -->
+      <div id="forecast-container" class="forecast-container">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </section>
+
+    <!-- Footer attribution -->
+    <footer class="app-footer">
+      <p>Data provided by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo API</a> (No API Key Required)</p>
+    </footer>
+
+  </div>
+
+  <!-- Link external JavaScript file for API fetching and DOM updates -->
+  <script src="script.js"></script>
+
+</body>
+</html>
